@@ -6,13 +6,15 @@ import { AppComponent } from './app.component';
 import { CardCreationComponent } from './card-creation/card-creation.component';
 import { HttpClientModule } from '@angular/common/http';
 import { CardDisplayComponent } from './card-display/card-display.component';
+import { LoginComponent } from './login/login.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     CardCreationComponent,
-    CardDisplayComponent
+    CardDisplayComponent,
+    LoginComponent
   ],
   imports: [
     HttpClientModule,

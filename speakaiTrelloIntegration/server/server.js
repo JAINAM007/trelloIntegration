@@ -49,10 +49,9 @@ app.get('/auth/trello', (req, res) => {
 
 //After oauth redirection 
 app.get('/auth/trello/callback', (req, res) => {
-        
-    res.redirect('http://localhost:4200/api/cards/display');
+   
+    res.redirect(process.env.CARD_DISPLAY_URL);
 
-     
   });
 
 // Start the server and console it to check the server is running
