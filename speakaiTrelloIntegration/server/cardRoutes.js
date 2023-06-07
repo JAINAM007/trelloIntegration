@@ -4,6 +4,20 @@ const axios = require('axios');
 const Card = require('./models/card'); 
 
 
+//Card get route to retieve the data
+router.get('/cards', async (req, res) => {
+  try {
+    const cards = await Card.find();
+    console.log(cards);
+    res.json(cards);
+  } catch (error) {
+    console.error('Error retrieving cards:', error);
+    res.status(500).json({ error: 'Failed to retrieve cards' });
+  }
+});
+
+
+
 // Card post route and here name is title 
 router.post('/cards', async (req, res) => {
   const { name, description } = req.body;
