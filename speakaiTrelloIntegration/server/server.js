@@ -39,7 +39,7 @@ app.get('/auth/trello', (req, res) => {
 //After oauth redirection 
 app.get('/auth/trello/callback', (req, res) => {
     const { token } = req.query;
-    console.log(token);
+    console.log(req);
   });
 
 // Start the server and console it to check the server is running
