@@ -5,11 +5,14 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { CardCreationComponent } from './card-creation/card-creation.component';
 import { HttpClientModule } from '@angular/common/http';
+import { CardDisplayComponent } from './card-display/card-display.component';
+
 
 @NgModule({
   declarations: [
     AppComponent,
-    CardCreationComponent
+    CardCreationComponent,
+    CardDisplayComponent
   ],
   imports: [
     HttpClientModule,

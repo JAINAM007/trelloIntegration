@@ -1,0 +1,6 @@
+<div *ngFor="let card of cards">
+    <h2>{{ card.name }}</h2>
+    <p>{{ card.description }}</p>
+    <p>Creation Date: {{ card.creationDate | date:'yyyy-MM-dd'}}</p>
+    <!-- Add more card details as needed -->
+  </div>

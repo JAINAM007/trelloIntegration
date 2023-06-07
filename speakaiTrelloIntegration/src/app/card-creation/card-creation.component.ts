@@ -20,14 +20,12 @@ export class CardCreationComponent {
       creationDate: this.cardCreationDate
     };
       
-    console.log(cardData.name);
-    console.log(cardData.description);
-    console.log(cardData.creationDate);
+
 
     // Make the HTTP POST request to the backend card creation route
     this.http.post('http://localhost:3000/api/cards', cardData).subscribe(
       (response) => {
-        console.log(response);
+        
       },
       (error) => {
         
