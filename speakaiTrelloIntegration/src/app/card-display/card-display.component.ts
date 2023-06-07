@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-card-display',
@@ -10,15 +11,32 @@ import { HttpClient } from '@angular/common/http';
 export class CardDisplayComponent implements OnInit {
   cards: any[] = [];
 
-  constructor(private http: HttpClient) {}
+  constructor(
+    private http: HttpClient,
+    private route: ActivatedRoute
+    ) {}
+
 
   ngOnInit() {
-    this.retrieveCards();
+    
+    this.route.fragment.subscribe((fragment: string | null) => {
+      
+      if (fragment) {
+      const token = new URLSearchParams(fragment).get('token');
+      console.log(token); // Output the token
+      if (token){
+      this.retrieveCards(token);
+      }
+      }
+    });
    }
 
-  retrieveCards() {
+  retrieveCards(token:string) {
     // Make the HTTP GET request to the backend card retrieval route
-    this.http.get<any[]>('http://localhost:3000/api/cards').subscribe(
+    // Build the URL with the token as a query parameter
+    const url = `http://localhost:3000/api/cards?token=${token}`;
+    this.http.get<any[]>(url).subscribe(
+      
       (response) => {
        
         this.cards = response;

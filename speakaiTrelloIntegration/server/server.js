@@ -1,11 +1,15 @@
 //Necessary Packages
 const express = require('express');
+const session = require('express-session');
 const cors = require('cors');
 const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
 const querystring = require('querystring');
 const dotenv = require('dotenv');
 const cardRoutes = require('./cardRoutes');
+const axios = require('axios');
+const url = require('url');
+
 
 dotenv.config();
 const app = express();
@@ -14,6 +18,13 @@ const port = 3000; // Change this port number if needed
 // Middleware
 app.use(cors());
 app.use(bodyParser.json());
+
+//Session Middleware
+// app.use(session({
+//     resave: false,
+//     saveUninitialized: true
+//   }));
+
 
 // Routes : Get for testing
 app.use('/api', cardRoutes);
@@ -38,8 +49,10 @@ app.get('/auth/trello', (req, res) => {
 
 //After oauth redirection 
 app.get('/auth/trello/callback', (req, res) => {
-    const { token } = req.query;
-    console.log(req);
+        
+    res.redirect('http://localhost:4200/api/cards/display');
+
+     
   });
 
 // Start the server and console it to check the server is running
