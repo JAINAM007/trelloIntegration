@@ -7,7 +7,7 @@ const Card = require('./models/card');
 //Card get route to retieve the data
 router.get('/cards', async (req, res) => {
   const { token } = req.query;
-  console.log("----------",token);
+ 
 
    // Make a GET request to Trello API to validate the token
    try{
@@ -67,7 +67,7 @@ router.post('/cards', async (req, res) => {
       description: createdCard.desc,
       creationDate: new Date()
     });
-    console.log(new Date());
+    
     await card.save();
 
     res.json(card);
