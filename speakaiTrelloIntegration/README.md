@@ -32,6 +32,21 @@ name: Represents the name of the Trello card.
 description: Provides a description of the Trello card.
 creationDate: Stores the date and time when the card was created.
 
+## API Endpoints
+
+This project provides the following API endpoints to interact with the Trello card data:
+
+GET /api/cards
+Retrieves all Trello cards from the database.
+Returns an array of card objects.
+
+POST /api/cards
+Creates a new Trello card in the database.
+Requires a JSON object in the request body with the following properties:
+name: The name of the card (string).
+description: The description of the card (string).
+creationDate: The creation date of the card (string, formatted as ISO 8601).
+
 ## Development server
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
