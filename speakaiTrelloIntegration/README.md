@@ -11,6 +11,18 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 - Error handling and error messages
 - Angular frontend and Express backend
 
+##Project Architecture
+This project follows a client-server architecture, allowing users to authenticate with Trello and perform various actions related to Trello cards.
+
+User Login: The user starts by logging in through Trello authentication. This process involves communication between the Angular application and the Node.js server. The Angular application initiates the authentication process by making a request to the server. The server redirects the user to the Trello authentication page.
+
+Trello Authentication: After the user is redirected to the Trello authentication page, they provide their Trello credentials and grant permission for the application to access their Trello account. Upon successful authentication, Trello sends a callback to the server with an access token.
+
+Card Details Display: With the access token received from Trello, the server validates the token's authenticity. If the token is valid, the server retrieves the card details from Trello's API. The server then sends the card details back to the Angular application, which displays them to the user.
+
+Token Validation: Token validation is a crucial step to ensure the security and validity of user access. The server makes a request to Trello's API to validate the received token. If the token is valid, the server proceeds with retrieving the card details. Otherwise, an error response is returned.
+
+Card Entry: If the token is valid, the user can interact with the displayed card details and make entries. The Angular application provides a user-friendly interface to create entries for the Trello cards. These actions are communicated to the server, which then interacts with Trello's API to perform the requested operations.
 
 ## Development server
 
