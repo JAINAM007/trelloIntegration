@@ -11,7 +11,8 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 - Error handling and error messages
 - Angular frontend and Express backend
 
-##Project Architecture
+## Project Architecture
+
 This project follows a client-server architecture, allowing users to authenticate with Trello and perform various actions related to Trello cards.
 
 User Login: The user starts by logging in through Trello authentication. This process involves communication between the Angular application and the Node.js server. The Angular application initiates the authentication process by making a request to the server. The server redirects the user to the Trello authentication page.
