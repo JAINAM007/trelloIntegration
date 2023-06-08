@@ -63,7 +63,7 @@ this.http.get<any[]>(url, { observe: 'response' }).subscribe({
 
   redirectToCreateCard() {
     const token = new URLSearchParams(window.location.hash.substr(1)).get('token');
-    console.log(token);
+    
     if (token) {
       this.router.navigateByUrl(`api/cards/create?token=${token}`);
     } else {

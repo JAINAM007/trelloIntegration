@@ -42,7 +42,7 @@ router.get('/cards', async (req, res) => {
 // Card post route and here name is title 
 router.post('/cards', async (req, res) => {
   const { name, description } = req.body;
-  console.log("yesyes",req);
+ 
   const { token } = req.query;
 
   try{

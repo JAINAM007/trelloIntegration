@@ -43,8 +43,7 @@ export class CardCreationComponent {
       description: this.cardDescription,
       creationDate: this.cardCreationDate
     };
-      console.log("dsdasdadadas",this.token);
-
+     
 
     // Make the HTTP POST request to the backend card creation route
     this.http.post(`${environment.apiUrl}/cards?token=${this.token}`, {...cardData}).subscribe(
