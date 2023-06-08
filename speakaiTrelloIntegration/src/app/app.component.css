@@ -1,0 +1,9 @@
+.heading-container {
+    text-align: center;
+    margin-bottom: 2rem;
+  }
+  
+  .heading-container h1 {
+    font-size: 2rem;
+    color: #333;
+  }

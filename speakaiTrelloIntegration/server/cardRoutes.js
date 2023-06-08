@@ -53,7 +53,7 @@ router.post('/cards', async (req, res) => {
           name,
           desc: description,         
           key: process.env.TRELLO_API_KEY,
-          token: 'process.env.TRELLO_API_SECRET',
+          token: process.env.TRELLO_API_SECRET,
           idList: '647cfb2e9a4bdf9e76af3965'
         },
       }

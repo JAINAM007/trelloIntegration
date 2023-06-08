@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { environment } from '../../enviroment';
 
 @Component({
   selector: 'app-card-creation',
@@ -23,7 +24,7 @@ export class CardCreationComponent {
 
 
     // Make the HTTP POST request to the backend card creation route
-    this.http.post('http://localhost:3000/api/cards', cardData).subscribe(
+    this.http.post(`${environment.apiUrl}/cards`, cardData).subscribe(
       (response) => {
         
       },
