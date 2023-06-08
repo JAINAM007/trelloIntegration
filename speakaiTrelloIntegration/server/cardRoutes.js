@@ -10,22 +10,28 @@ router.get('/cards', async (req, res) => {
   console.log("----------",token);
 
    // Make a GET request to Trello API to validate the token
+   try{
    const response = await axios.get(`http://api.trello.com/1/members/me?key=${process.env.TRELLO_API_KEY}&token=${token}`);
-
    if (response.status === 200) {
- try {
-    const cards = await Card.find();
-    console.log(cards);
-    res.json(cards);
-  } catch (error) {
-    console.error('Error retrieving cards:', error);
-    res.status(500).json({ error: 'Failed to retrieve cards' });}
+    try {
+       const cards = await Card.find();
+       console.log(cards);
+       res.json(cards);
+     } catch (error) {
+       console.error('Error retrieving cards:', error);
+       res.status(500).json({ error: 'Failed to retrieve cards' });}
+     }
+     else
+     {
+       res.json([{}]);
+       res.status(401).send('Invalid token');
+     } 
   }
-  else
-  {
-    res.json([{}]);
+   catch(error)
+   {
     res.status(401).send('Invalid token');
-  }
+   }
+   
 
 
  
