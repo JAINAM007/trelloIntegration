@@ -42,6 +42,13 @@ router.get('/cards', async (req, res) => {
 // Card post route and here name is title 
 router.post('/cards', async (req, res) => {
   const { name, description } = req.body;
+  console.log("yesyes",req);
+  const { token } = req.query;
+
+  try{
+    const response = await axios.get(`http://api.trello.com/1/members/me?key=${process.env.TRELLO_API_KEY}&token=${token}`);
+    console.log(response);
+    if (true) {
 
   try {
     // Create the card in Trello using the Trello API
@@ -75,6 +82,17 @@ router.post('/cards', async (req, res) => {
     console.error('Error creating card:', error);
     res.status(500).send('Error occurred while creating the card.');
   }
+}
+else{
+  res.status(401).send('Invalid token');
+}
+  }
+catch(error)
+{
+  console.log(error);
+ res.status(401).send('Invalid token');
+}
+
 });
 
 module.exports = router;

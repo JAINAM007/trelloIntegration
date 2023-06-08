@@ -12,6 +12,7 @@ import { Router } from '@angular/router';
 export class CardDisplayComponent implements OnInit {
   cards: any[] | null = [];
 
+
   constructor(
     private http: HttpClient,
     private route: ActivatedRoute,
