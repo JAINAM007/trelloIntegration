@@ -25,6 +25,13 @@ Token Validation: Token validation is a crucial step to ensure the security and 
 
 Card Entry: If the token is valid, the user can interact with the displayed card details and make entries. The Angular application provides a user-friendly interface to create entries for the Trello cards. These actions are communicated to the server, which then interacts with Trello's API to perform the requested operations.
 
+## Database Schema
+This project utilizes MongoDB as the database to store information related to Trello cards. 
+
+name: Represents the name of the Trello card.
+description: Provides a description of the Trello card.
+creationDate: Stores the date and time when the card was created.
+
 ## Development server
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
