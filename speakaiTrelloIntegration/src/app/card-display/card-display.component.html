@@ -4,3 +4,8 @@
     <p>Creation Date: {{ card.creationDate | date:'yyyy-MM-dd'}}</p>
     <!-- Add more card details as needed -->
   </div>
+  
+  <div class="button-logout-container">
+    <button class="button-create" (click)="redirectToCreateCard()">Create Card</button>
+    <button class="button-logout" (click)="logout()">Logout</button>
+  </div>

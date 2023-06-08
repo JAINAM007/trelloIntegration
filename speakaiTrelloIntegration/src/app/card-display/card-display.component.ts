@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { ActivatedRoute } from '@angular/router';
 import { HttpResponse } from '@angular/common/http';
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-card-display',
   templateUrl: './card-display.component.html',
@@ -13,7 +14,8 @@ export class CardDisplayComponent implements OnInit {
 
   constructor(
     private http: HttpClient,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private router: Router
     ) {}
 
 
@@ -30,6 +32,7 @@ export class CardDisplayComponent implements OnInit {
       }
       else{
         alert("UnAuthorized");
+        this.router.navigateByUrl('/login');
       }
     });
    }
@@ -55,5 +58,24 @@ this.http.get<any[]>(url, { observe: 'response' }).subscribe({
     console.error(error);
   }}
     );
+  }
+
+  redirectToCreateCard() {
+    const token = new URLSearchParams(window.location.hash.substr(1)).get('token');
+    console.log(token);
+    if (token) {
+      this.router.navigateByUrl(`api/cards/create?token=${token}`);
+    } else {
+      // Handle case where token is not available
+      // Redirect or display an error message
+    }
+  }
+
+  logout() {
+    // Perform the necessary logout actions
+    // For example, clear the user session, remove tokens, etc.
+  
+    // Redirect the user to the login page
+    this.router.navigateByUrl('/api/login');
   }
 }

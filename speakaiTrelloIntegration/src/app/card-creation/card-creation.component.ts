@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { environment } from '../../enviroment';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-card-creation',
@@ -12,7 +13,9 @@ export class CardCreationComponent {
   cardDescription: string = '';
   cardCreationDate: string = '';
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient,
+
+    private router: Router) {}
 
   createCard() {
     const cardData = {
@@ -32,6 +35,11 @@ export class CardCreationComponent {
         
       }
     );
+  }
+
+  logout() {
+    // I will create seprate logout component in which I can destory token from cookie
+    this.router.navigateByUrl('/api/login');
   }
 
 }
