@@ -1,6 +1,16 @@
-# SpeakaiTrelloIntegration
+# TrelloIntegration
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 16.0.4.
+
+## Features
+
+- Authentication with Trello using OAuth 
+- Fetching and displaying Trello cards for a specific user
+- Rendering a separate component dynamically
+- Token validation on the server-side
+- Error handling and error messages
+- Angular frontend and Express backend
+
 
 ## Development server
 
